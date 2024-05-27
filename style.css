@@ -1,83 +1,394 @@
-body {
-    font-family: Arial, sans-serif;
+body, h1, h2, h3, p, ul {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
     background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
 }
 
-h1 {
+
+.header {
     text-align: center;
-    margin-bottom: 50px;
-    border-bottom: 2px solid black;
-    padding-bottom: 50px;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #007bff;
+    background-color: grey;
+    color: white;
+    position: relative;
 }
 
-.section {
-    margin-bottom: 40px;
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.section h2 {
-    margin-bottom: 20px;
-}
-
-.section p {
-    margin: 20px;
-
+.header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 0;
 }
 
 .contact-info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 2rem;
 }
 
 .contact-info div {
-    flex-basis: calc(33.33% - 20px);
-    margin-bottom: 20px;
+    flex-basis: calc(50% - 10px);
+    margin-bottom: 1rem;
 }
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 24px;
+}
+
+.contact-info p::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-size: cover;
+}
+
+.contact-info p.email::before {
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/email.png');
+}
+
+.contact-info p.phone::before {
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/phone.png');
+}
+
+.contact-info p.linkedin::before {
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/linkedin.png');
+}
+
+.contact-info p.github::before {
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/github.png');
+}
+
+.contact-info p.address::before {
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/address.png');
+}
+
+.contact-info p.website::before {
+    background-image: url('https://img.icons8.com/color/48/000000/internet.png');
+}
+
 
 .skills {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.skills:hover {
+    background: #f1f1f1;
+}
+#oth{
+    padding-left: 20px;
 }
 
 .skills div {
-    flex-basis: calc(33.33% - 20px);
-    margin-bottom: 20px;
+    flex-basis: calc(100% - 0px);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
-.education, .work-experience {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.skills div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.education{
+.skills h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: #ffffff;
+    background: linear-gradient(45deg, #007bff, #00d4ff);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.skill-bar {
+    margin-bottom: 1rem;
+}
+.skills .skill-bar{
+    flex-basis: calc(30% - 0px);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.skill-bar p {
+    margin-bottom: 0.3rem;
+    font-size: 1.0rem;
+    display: flex;
     align-items: center;
 }
 
-.education li, .work-experience li {
-    margin-bottom: 10px;
-}
-.education li{
-    border: 2px solid rgb(255, 255, 255);
-    padding: 25px;
-    box-shadow: -6px 5px 10px 0px grey;
+.skill-bar p::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-size: contain;
 }
 
-@media (max-width: 768px) {
-    .contact-info div, .skills div {
+.skill-bar p.html::before {
+    background-image: url('https://img.icons8.com/color/48/000000/html-5.png');
+}
+
+.skill-bar p.css::before {
+    background-image: url('https://img.icons8.com/color/48/000000/css3.png');
+}
+
+.skill-bar p.js::before {
+    background-image: url('https://img.icons8.com/color/48/000000/javascript.png');
+}
+
+.skill-bar p.java::before {
+    background-image: url('https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v2.png');
+}
+
+.skill-bar p.py::before {
+    background-image: url('https://img.icons8.com/color/48/000000/python.png');
+}
+
+.skill-bar p.node::before {
+    background-image: url('https://img.icons8.com/color/48/000000/nodejs.png');
+}
+
+.progress-bar {
+    width: 90%;
+    height: 10%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 10%;
+    background: linear-gradient(45deg, #007bff, #00d4ff) !important;
+    transition: width 1s ease-in-out;
+}
+
+.section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, background-color 0.3s, transform 0.3s;
+}
+
+.section:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.section h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #444;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.section h2::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    background-size: contain;
+}
+
+.section h2.work::before {
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/briefcase.png');
+}
+
+.section h2.education::before {
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/graduation-cap.png');
+}
+
+.section h2.projects::before {
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/project.png');
+}
+
+.section p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.work-experience,
+.education,
+.projects ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.work-experience li,
+.education li {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: #ffffff;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.work-experience li:hover,
+.education li:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.work-experience li::before,
+.education li::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #007bff;
+    border-radius: 50%;
+}
+
+.education li::before {
+    background-color: #00d4ff;
+}
+
+.work-experience li strong::before,
+.education li strong::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-size: contain;
+}
+
+.work-experience li strong::before {
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/briefcase.png');
+}
+
+.education li strong::before {
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/graduation-cap.png');
+}
+
+
+.projects ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.projects li {
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.projects li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.projects li p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.projects li strong::before {
+    content: '📁';
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.projects li a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #007bff, #00d4ff);
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.projects li a:hover {
+    background: linear-gradient(45deg, #0056b3, #0086c7);
+}
+
+@media screen and (max-width: 768px) {
+    .contact-info div,
+    .skills div {
         flex-basis: 100%;
     }
 }
